@@ -45,7 +45,9 @@ export default function PlatformsPage() {
 
   const fetchPlatforms = async () => {
     try {
-      const res = await fetch(`/api/data?userId=${user?.id}`);
+      const res = await fetch(`/api/data?userId=${user?.id}`, {
+        headers: { 'x-user-id': user?.id || '' }
+      });
       const data = await res.json();
       setConnected(data.platforms || []);
     } catch (err) {
@@ -61,7 +63,10 @@ export default function PlatformsPage() {
     try {
       const res = await fetch('/api/platforms', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-user-id': user.id
+        },
         body: JSON.stringify({
           userId: user.id,
           platformName: selectedPlatform,
@@ -87,7 +92,10 @@ export default function PlatformsPage() {
     if (!confirm('Are you sure you want to disconnect this platform?')) return;
 
     try {
-      await fetch(`/api/platforms?id=${id}`, { method: 'DELETE' });
+      await fetch(`/api/platforms?id=${id}`, {
+        method: 'DELETE',
+        headers: { 'x-user-id': user?.id || '' }
+      });
       fetchPlatforms();
     } catch (err) {
       console.error(err);

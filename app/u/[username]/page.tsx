@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Trophy, Flame, Activity, Github, Code, Globe, User, Download, ExternalLink } from 'lucide-react';
+import { Trophy, Flame, Activity, Github, Code, Globe, User, Download, ExternalLink, AlertCircle } from 'lucide-react';
 import { calculateReadiness } from '@/lib/readiness';
 import ReadinessRadar from '@/components/ReadinessRadar';
 import CountUp from '@/components/CountUp';
@@ -25,10 +25,7 @@ export default function PublicProfile() {
       const res = await fetch(`/api/data?username=${emailPrefix}`);
       const d = await res.json();
       if (d.error) {
-         // Fallback to demo user if not found, for better UX in preview
-         const fallback = await fetch('/api/data?userId=s8uefl');
-         const fd = await fallback.json();
-         setData(fd);
+         setData(null);
       } else {
          setData(d);
       }
@@ -40,6 +37,14 @@ export default function PublicProfile() {
   };
 
   if (loading) return <div className="h-screen flex items-center justify-center text-cyan-500 font-black animate-pulse text-2xl tracking-[1em]">LOADING...</div>;
+
+  if (!data) return (
+    <div className="h-screen flex flex-col items-center justify-center text-white p-4 text-center">
+      <AlertCircle size={64} className="text-red-500 mb-6" />
+      <h1 className="text-4xl font-black mb-4">PROFILE NOT FOUND</h1>
+      <p className="text-gray-500 max-w-md">The developer profile you are looking for does not exist or has not been activated yet.</p>
+    </div>
+  );
 
   const readiness = calculateReadiness(data);
   const totalSolved = data?.platforms.reduce((acc: number, p: any) => acc + (p.stats?.totalSolved || 0), 0) || 0;
@@ -58,10 +63,10 @@ export default function PublicProfile() {
               <User size={64} className="text-gray-700" />
             </div>
           </div>
-          <h1 className="text-6xl md:text-8xl font-black text-white tracking-tightest mb-4">
-            {emailPrefix.toUpperCase()} <span className="text-cyan-500">.</span>
+          <h1 className="text-7xl md:text-9xl font-black text-white tracking-tightest mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">
+            {emailPrefix.toUpperCase()} <span className="text-cyan-500 text-glow">.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-500 font-medium tracking-tight">Software Engineer & Open Source Strategist</p>
+          <p className="text-2xl md:text-3xl text-gray-400 font-black tracking-tightest uppercase italic">The Engineering Aura is Impeccable</p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-12">
             {data?.platforms.map((p: any) => (
@@ -108,10 +113,10 @@ export default function PublicProfile() {
 
         {/* Right Sidebar */}
         <div className="space-y-12 pt-20 lg:pt-0">
-          <div className="glass rounded-[3rem] p-10 bg-gradient-to-br from-cyan-500/10 to-transparent">
-            <h3 className="text-xl font-black text-white mb-6">Verified Readiness</h3>
-            <div className="text-6xl font-black text-white mb-2"><CountUp value={readiness.overall} />%</div>
-            <p className="text-cyan-400 text-xs font-black uppercase tracking-widest mb-8 text-glow">RECRUITER READY</p>
+          <div className="glass rounded-[3rem] p-10 bg-gradient-to-br from-cyan-500/10 to-transparent border-cyan-500/20">
+            <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest">Aura Readiness</h3>
+            <div className="text-7xl font-black text-white mb-2 drop-shadow-[0_0_20px_rgba(6,182,212,0.3)]"><CountUp value={readiness.overall} />%</div>
+            <p className="text-cyan-400 text-xs font-black uppercase tracking-[0.3em] mb-8 text-glow italic">Absolute W</p>
             <p className="text-gray-400 text-sm leading-relaxed mb-8">
               AURA has verified this profile against real-time data from 4 major platforms. Metrics confirm top-tier consistency and technical aptitude.
             </p>

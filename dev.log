@@ -1,0 +1,35 @@
+
+> app@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.1.7
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 3.2s
+ ○ Compiling /login ...
+ ✓ Compiled /login in 8.5s (1441 modules)
+ GET /login 200 in 9444ms
+ ✓ Compiled in 1225ms (711 modules)
+ ○ Compiling /signup ...
+ ✓ Compiled /signup in 2.8s (1452 modules)
+ GET /signup 200 in 2984ms
+ GET /login 200 in 571ms
+ GET /signup 200 in 19ms
+ ○ Compiling /api/auth/signup ...
+ ✓ Compiled /api/auth/signup in 1387ms (1474 modules)
+ POST /api/auth/signup 200 in 1748ms
+ ○ Compiling / ...
+ ✓ Compiled / in 6s (2341 modules)
+ GET / 200 in 5546ms
+ GET / 200 in 66ms
+ ✓ Compiled /api/data in 487ms (2343 modules)
+ GET /api/data?userId=furqd 200 in 542ms
+ GET /api/data?userId=furqd 200 in 8ms
+ GET /api/data?userId=furqd 200 in 12ms
+ GET /api/data?userId=furqd 200 in 7ms
+ ○ Compiling /u/[username] ...
+ ✓ Compiled /u/[username] in 1398ms (2354 modules)
+ GET /u/fire_1770487888 200 in 3341ms
+ GET /api/data?username=fire_1770487888 200 in 23ms

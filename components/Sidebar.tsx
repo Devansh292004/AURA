@@ -42,11 +42,14 @@ export default function Sidebar() {
   return (
     <aside className="w-72 border-r border-white/5 bg-[#0a0a0c] flex flex-col h-screen sticky top-0">
       <div className="p-8">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20">
-            <span className="text-xl font-black text-white">A</span>
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-cyan-500 blur-xl opacity-20 group-hover:opacity-100 transition-opacity animate-pulse" />
+            <div className="relative w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20 transform group-hover:rotate-12 transition-transform">
+              <span className="text-xl font-black text-white">A</span>
+            </div>
           </div>
-          <span className="text-2xl font-black text-white tracking-tighter">AURA</span>
+          <span className="text-2xl font-black text-white tracking-tighter group-hover:text-cyan-400 transition-colors">AURA</span>
         </Link>
       </div>
 
