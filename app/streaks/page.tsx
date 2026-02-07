@@ -38,28 +38,51 @@ export default function StreaksPage() {
   const days = eachDayOfInterval({ start: startOfMonth(today), end: endOfMonth(today) });
 
   return (
-    <div className="p-8 max-w-7xl mx-auto space-y-8">
+    <div className="p-12 max-w-7xl mx-auto space-y-12">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Streaks</h1>
-        <p className="text-gray-400">Your coding momentum, strictly tracked in real-time.</p>
+        <h1 className="text-5xl font-black text-white mb-4 tracking-tightest">Momentum <span className="text-orange-500">.</span></h1>
+        <p className="text-gray-500 text-lg">Strict real-time tracking of your digital consistency.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <StatBox icon={<Flame className="text-orange-500" />} label="Current Streak" value={currentStreak} suffix=" Days" />
         <StatBox icon={<Trophy className="text-yellow-500" />} label="Longest Streak" value={longestStreak} suffix=" Days" />
         <StatBox icon={<Calendar className="text-blue-500" />} label="Active Days" value={activeDates.length} />
       </div>
 
-      <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
-        <h3 className="text-xl font-bold mb-8">Activity Heatmap</h3>
-        <div className="flex flex-wrap gap-2">
+      <div className="glass rounded-[3rem] p-12 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500/20" />
+        <h3 className="text-2xl font-black text-white mb-12 flex items-center gap-4">
+          <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+          Neural Heatmap
+        </h3>
+        <div className="flex flex-wrap gap-3">
           {days.map((day, i) => {
             const dateStr = format(day, 'yyyy-MM-dd');
             const isActive = activeDates.includes(dateStr);
             return (
-              <div key={i} className={cn("w-8 h-8 rounded-md transition-all", isActive ? "bg-cyan-500 shadow-lg shadow-cyan-500/20" : "bg-white/5")} title={dateStr} />
+              <div
+                key={i}
+                className={cn(
+                  "w-10 h-10 rounded-xl transition-all duration-500 border border-white/5",
+                  isActive
+                    ? "bg-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.4)] border-cyan-400/50 scale-105"
+                    : "bg-white/[0.02] hover:bg-white/[0.05]"
+                )}
+                title={dateStr}
+              />
             );
           })}
+        </div>
+        <div className="mt-12 flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-gray-600">
+           <div className="flex items-center gap-2">
+             <div className="w-3 h-3 bg-white/[0.02] rounded-sm" />
+             <span>DORMANT</span>
+           </div>
+           <div className="flex items-center gap-2">
+             <div className="w-3 h-3 bg-cyan-500 rounded-sm" />
+             <span>ACTIVE</span>
+           </div>
         </div>
       </div>
     </div>

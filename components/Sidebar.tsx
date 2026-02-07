@@ -32,6 +32,13 @@ export default function Sidebar() {
     router.push('/login');
   };
 
+  const handleShare = () => {
+    if (!user) return;
+    const url = `${window.location.origin}/u/${user.email.split('@')[0]}`;
+    navigator.clipboard.writeText(url);
+    alert("Portfolio link copied to clipboard!");
+  };
+
   return (
     <aside className="w-72 border-r border-white/5 bg-[#0a0a0c] flex flex-col h-screen sticky top-0">
       <div className="p-8">
@@ -79,13 +86,20 @@ export default function Sidebar() {
               <p className="text-[10px] text-gray-500 truncate">Pro Developer</p>
             </div>
           </div>
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center gap-2 px-3 py-2 text-gray-500 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-all text-xs font-bold"
-          >
-            <LogOut size={14} />
-            Logout
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={handleShare}
+              className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20 rounded-lg transition-all text-[10px] font-black uppercase tracking-widest"
+            >
+              Share
+            </button>
+            <button
+              onClick={handleLogout}
+              className="px-3 py-2 text-gray-600 hover:text-red-400 rounded-lg transition-all"
+            >
+              <LogOut size={14} />
+            </button>
+          </div>
         </div>
       </div>
     </aside>
