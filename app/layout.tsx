@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+import LayoutWrapper from "@/components/LayoutWrapper";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aura | Developer Intelligence Dashboard",
-  description: "Portfolio-grade developer analytics platform",
+  title: "AURA | Developer Intelligence Dashboard",
+  description: "Connect your coding profiles and track your growth.",
 };
 
 export default function RootLayout({
@@ -14,11 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex h-screen overflow-hidden bg-slate-950 text-slate-50">
-        <Sidebar />
-        <main className="flex-1 overflow-y-auto p-8">
+      <body className={`${inter.className} bg-[#0a0a0c] text-slate-200 antialiased`}>
+        <LayoutWrapper>
           {children}
-        </main>
+        </LayoutWrapper>
       </body>
     </html>
   );

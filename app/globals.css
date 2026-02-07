@@ -1,20 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0c;
+  --color-foreground: #f8fafc;
+  --color-primary: #06b6d4;
+  --color-secondary: #8b5cf6;
+}
 
 :root {
-  --background: #0f172a;
+  --background: #0a0a0c;
   --foreground: #f8fafc;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-white/5;
   }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
 }
