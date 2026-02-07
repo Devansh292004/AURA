@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "id": "gwcaa7",
+      "email": "premium_1770485245@aura.io",
+      "name": "Premium User",
+      "password": "password123",
+      "createdAt": "2026-02-07T17:27:48.928Z"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "3xg5am",
+      "userId": "gwcaa7",
+      "platformName": "github",
+      "username": "octocat",
+      "profileUrl": "https://github.com/octocat",
+      "lastSync": "2026-02-07T17:29:30.957Z",
+      "stats": {
+        "totalContributions": 0,
+        "repoCount": 8,
+        "followers": 21724,
+        "following": 9,
+        "publicGists": 8,
+        "recentRepos": [
+          {
+            "name": "Hello-World",
+            "stars": 3482,
+            "language": "Unknown"
+          },
+          {
+            "name": "test-repo1",
+            "stars": 426,
+            "language": "Unknown"
+          },
+          {
+            "name": "boysenberry-repo-1",
+            "stars": 426,
+            "language": "Unknown"
+          },
+          {
+            "name": "Spoon-Knife",
+            "stars": 13581,
+            "language": "HTML"
+          },
+          {
+            "name": "octocat.github.io",
+            "stars": 1038,
+            "language": "CSS"
+          }
+        ],
+        "contributions": []
+      }
+    }
+  ],
+  "activity": [],
+  "analytics": [
+    {
+      "id": "zw5gjl",
+      "userId": "gwcaa7",
+      "date": "2026-02-07",
+      "streak": 0,
+      "consistencyScore": 0
+    }
+  ]
+}

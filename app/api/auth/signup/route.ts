@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getDb, saveDb } from '@/lib/db';
+import bcrypt from 'bcryptjs';
 
 export async function POST(req: NextRequest) {
   const { email, name, password } = await req.json();
@@ -15,11 +16,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'User already exists' }, { status: 400 });
   }
 
+  const hashedPassword = await bcrypt.hash(password, 10);
+
   const newUser = {
     id: Math.random().toString(36).substring(7),
     email,
     name,
-    password, // Store password (ideally hashed, but better than ignored)
+    password: hashedPassword,
     createdAt: new Date().toISOString()
   };
 

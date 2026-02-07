@@ -8,12 +8,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAuthPage = pathname === '/login' || pathname === '/signup';
+  const isPublicProfile = pathname?.startsWith('/u/');
 
   return (
     <AuthProvider>
       <div className="flex min-h-screen bg-[#0a0a0c] text-slate-200">
-        {!isAuthPage && <Sidebar />}
-        <main className={isAuthPage ? "w-full" : "flex-1 overflow-y-auto"}>
+        {!isAuthPage && !isPublicProfile && <Sidebar />}
+        <main className={(isAuthPage || isPublicProfile) ? "w-full" : "flex-1 overflow-y-auto"}>
           <AnimatePresence mode="wait">
             <motion.div
               key={pathname}
