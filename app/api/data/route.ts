@@ -5,6 +5,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   let userId = searchParams.get('userId');
   const username = searchParams.get('username');
+  const sessionUserId = req.headers.get('x-user-id');
 
   const db = getDb();
 
@@ -15,6 +16,13 @@ export async function GET(req: NextRequest) {
 
   if (!userId) {
     return NextResponse.json({ error: 'User ID or Username is required' }, { status: 400 });
+  }
+
+  // Ownership Check: In a real app, verify against JWT/Session
+  // For this prototype, we simulate session validation via x-user-id header
+  // Public profiles (via username) are exempt from ownership check
+  if (userId && !username && sessionUserId && sessionUserId !== userId) {
+    return NextResponse.json({ error: 'Unauthorized Access' }, { status: 403 });
   }
 
   const userPlatforms = db.platforms.filter(p => p.userId === userId);

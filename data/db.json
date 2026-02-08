@@ -1,66 +1,35 @@
 {
   "users": [
     {
-      "id": "gwcaa7",
-      "email": "premium_1770485245@aura.io",
-      "name": "Premium User",
-      "password": "password123",
-      "createdAt": "2026-02-07T17:27:48.928Z"
-    }
-  ],
-  "platforms": [
+      "id": "oyo4ia",
+      "email": "test@example.com",
+      "name": "Test User",
+      "password": "$2b$10$ZpMHM7Ec0MzvZcPVpmNl1.4yDp9sffg6ql6lVmrZP7Hr6bRfxwZkC",
+      "createdAt": "2026-02-07T17:57:43.927Z"
+    },
     {
-      "id": "3xg5am",
-      "userId": "gwcaa7",
-      "platformName": "github",
-      "username": "octocat",
-      "profileUrl": "https://github.com/octocat",
-      "lastSync": "2026-02-07T17:29:30.957Z",
-      "stats": {
-        "totalContributions": 0,
-        "repoCount": 8,
-        "followers": 21724,
-        "following": 9,
-        "publicGists": 8,
-        "recentRepos": [
-          {
-            "name": "Hello-World",
-            "stars": 3482,
-            "language": "Unknown"
-          },
-          {
-            "name": "test-repo1",
-            "stars": 426,
-            "language": "Unknown"
-          },
-          {
-            "name": "boysenberry-repo-1",
-            "stars": 426,
-            "language": "Unknown"
-          },
-          {
-            "name": "Spoon-Knife",
-            "stars": 13581,
-            "language": "HTML"
-          },
-          {
-            "name": "octocat.github.io",
-            "stars": 1038,
-            "language": "CSS"
-          }
-        ],
-        "contributions": []
-      }
+      "id": "gbj0g",
+      "email": "test2@example.com",
+      "name": "Test User 2",
+      "password": "$2b$10$3nys6fJUV/rwvoU3X3V8Qu8rJwgbfeUT7URFIcOLDsyuZxruv5oRK",
+      "createdAt": "2026-02-07T17:58:25.438Z"
+    },
+    {
+      "id": "xkynpi",
+      "email": "security_test@example.com",
+      "name": "Security Test",
+      "password": "$2b$10$tyim.kWhPQ85C8Tr4TI8l.HEP2V9w2hE0YtFZnqBALgJp9LFA1iBq",
+      "createdAt": "2026-02-07T18:06:46.824Z"
+    },
+    {
+      "id": "furqd",
+      "email": "fire_1770487888@aura.io",
+      "name": "Fire User",
+      "password": "$2b$10$n0uVstd2rFAXgFnDX41PIuU7hLFh1HTElXSKk8.LquVfkX2rwgR/K",
+      "createdAt": "2026-02-07T18:11:35.819Z"
     }
   ],
+  "platforms": [],
   "activity": [],
-  "analytics": [
-    {
-      "id": "zw5gjl",
-      "userId": "gwcaa7",
-      "date": "2026-02-07",
-      "streak": 0,
-      "consistencyScore": 0
-    }
-  ]
+  "analytics": []
 }

@@ -29,5 +29,6 @@ export async function POST(req: NextRequest) {
   db.users.push(newUser);
   saveDb(db);
 
-  return NextResponse.json(newUser);
+  const { password: _, ...userWithoutPassword } = newUser;
+  return NextResponse.json(userWithoutPassword);
 }

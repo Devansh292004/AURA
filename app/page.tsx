@@ -39,7 +39,9 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(`/api/data?userId=${user?.id}`);
+      const res = await fetch(`/api/data?userId=${user?.id}`, {
+        headers: { 'x-user-id': user?.id || '' }
+      });
       const d = await res.json();
       setData(d);
     } catch (err) {
@@ -82,21 +84,21 @@ export default function Home() {
     <div className="p-8 space-y-12 max-w-[1600px] mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div>
-          <h1 className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-600 tracking-tightest leading-none">
-            AURA <span className="text-cyan-500">.</span>
+          <h1 className="text-7xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-300 to-purple-500 tracking-tightest leading-none animate-in fade-in slide-in-from-left-4 duration-1000">
+            AURA <span className="text-cyan-500 text-glow">.</span>
           </h1>
-          <p className="text-gray-400 mt-4 text-lg max-w-lg">
-            Elevate your engineering presence. Real-time intelligence from your digital coding footprint.
+          <p className="text-gray-400 mt-6 text-xl max-w-lg font-medium">
+            Elevate your presence. Real-time intelligence for the <span className="text-white italic">main character</span> of the codebase. ⚡️
           </p>
         </div>
         <button
           onClick={handleSync}
           disabled={syncing}
-          className="group relative flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+          className="group relative flex items-center gap-3 px-10 py-5 bg-white text-black rounded-full font-black overflow-hidden transition-all hover:scale-105 active:scale-95 disabled:opacity-50 shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-cyan-500/50"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <RefreshCw className={cn("relative z-10 w-5 h-5", syncing && "animate-spin")} />
-          <span className="relative z-10">{syncing ? 'Syncing Mastery...' : 'Sync Activity'}</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          <RefreshCw className={cn("relative z-10 w-6 h-6", syncing && "animate-spin")} />
+          <span className="relative z-10 tracking-tight">{syncing ? 'COOKING...' : 'SYNC ENERGY'}</span>
         </button>
       </div>
 
@@ -111,13 +113,14 @@ export default function Home() {
         <TiltCard className="lg:col-span-1">
           <div className="glass rounded-[2rem] p-8 h-full relative overflow-hidden flex flex-col items-center justify-center text-center">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-            <p className="text-gray-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-8">Internship Readiness</p>
+            <p className="text-gray-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-8">AURA READINESS SCORE</p>
             <div className="w-64 h-64 relative mb-6">
+              <div className="absolute inset-0 bg-cyan-500/10 blur-[100px] rounded-full animate-pulse" />
               <ReadinessRadar score={readiness} />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <p className="text-5xl font-black text-white"><CountUp value={readiness.overall} />%</p>
-                  <p className="text-[10px] text-cyan-400 font-bold uppercase">Ready</p>
+                  <p className="text-6xl font-black text-white drop-shadow-2xl"><CountUp value={readiness.overall} />%</p>
+                  <p className="text-[10px] text-cyan-400 font-black uppercase tracking-[0.2em]">MAX VIBE</p>
                 </div>
               </div>
             </div>

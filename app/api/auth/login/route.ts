@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   const db = getDb();
   const user = db.users.find(u => u.email === email);
 
-  if (!user) {
+  if (!user || !user.password) {
     return NextResponse.json({ error: 'Invalid email or password' }, { status: 401 });
   }
 

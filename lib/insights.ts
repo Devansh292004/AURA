@@ -20,7 +20,7 @@ export function generateInsights(data: any): Insight[] {
     insights.push({
       type: 'achievement',
       category: 'consistency',
-      message: "Legendary Momentum. You've maintained a 7+ day streak, putting you in the top 5% of consistent learners."
+      message: "ABSOLUTE UNIT. You're on a 7+ day streak. The consistency is impeccable—you're outperforming 95% of the field. Stay locked in. ⚡️"
     });
   }
 
@@ -28,7 +28,7 @@ export function generateInsights(data: any): Insight[] {
     insights.push({
       type: 'suggestion',
       category: 'technical',
-      message: "Algorithm Heavy. Your LeetCode profile is strong, but recruiters want to see build-activity. Try pushing more projects to GitHub."
+      message: "LEETCODE GOAT, PROJECT GHOST. Your logic is elite, but your GitHub is quiet. Start shipping project code to prove you can build real products. 🚀"
     });
   }
 
@@ -44,7 +44,7 @@ export function generateInsights(data: any): Insight[] {
     insights.push({
       type: 'suggestion',
       category: 'consistency',
-      message: "Vulnerability Detected. Your activity frequency is dipping. A 15-minute daily commit can stabilize your growth curve."
+      message: "VIBE CHECK: SLUMPING. Your activity frequency is dipping. Don't let the momentum die—a small daily commit keeps the AURA high. 📉"
     });
   }
 
@@ -52,7 +52,7 @@ export function generateInsights(data: any): Insight[] {
     insights.push({
       type: 'achievement',
       category: 'technical',
-      message: "Elite Problem Solver. 300+ problems solved signals advanced data structure mastery."
+      message: "MAIN CHARACTER ENERGY. 300+ problems solved. Your technical depth is reaching critical mass. Recruiters are going to love this. 💎"
     });
   }
 
